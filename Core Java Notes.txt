@@ -1,0 +1,133 @@
+					What and Why Java?
+
+		Java is an Object Oriented Language.
+		object oreinted,multithreading,platform independent,robust
+
+		Object Oriented features: Abstraction, Encapsulation,Inheritance,Polymorphism
+
+		is java a pure object oriented language??
+		NO, bcoz java still supports primitive types like int,char,float.
+
+		Student student=new Student();
+		Student student: reference variable : stack memory
+		new Student();: object : heap memory
+		int num=10;
+
+
+		Why Object Oriented Approach??
+		it is based on real world. 
+
+		mobile phone
+		abstraction(showing relevant data/info) : behaviour(functions) : "What to do?"
+		encapsulation(hiding complex details): attributes/implementation: "How to do?"
+		Inheritance(resuability)
+		Polymorphism( many forms)
+
+		Various types available in Java
+		1. primitive types(int,char,float,double,byte....)
+		2. Derived types( arrays)
+		3. User defined types( classes,enums,interfaces..)
+
+		What is class?
+		A class is a user defined type which exhibits attributes and behaviour.
+
+		What is object?
+		An object is an instance of a class.
+
+
+		class Mobile{
+			
+			private chips,circuits
+
+			public call
+			public message
+	
+		}
+
+		object: abstraction
+
+----------------------------------------------------------------------------------------
+
+JDK (Java Development kit): JRE(Java Runtime Environment)+ Devlopment tools
+			    JRE: JVM(Java Virtual Machine)+ Library(classes,interface)
+
+
+Variables in class:
+Instance variables: these variable are created when an object of the class is created and destroyed when the object is deallocated from the memory.
+Class/static  variables: these variables are created when the class is loaded in the memory, and gets destroyed when the class is unloaded or the program is stopped.
+
+Static block:
+A static block is used to initialize static variables. 
+A static block called even before main method during the class is being loaded.
+A static block is called only once for a class whereas constructor are called everytime an object is created.
+
+
+arrays: are set of similar type variables. It allocate consecutive memory. is a way of collecting data.
+        an array is a fixed size variable.
+
+	int[] phonenumbers=new int[3];
+	
+	int[] phonenumbers;
+
+	phonenumbers=new int[3];
+
+Method overloading:
+In a class, we can have more than one method with the same but different method signature.
+Method signature:
+1. Number of parameters
+2. Type of parameters
+3. Sequence of parameters
+
+public void add(int a,int b){}
+public void add(float a,float b){}
+public void add(float a,float b,float c){}
+public void add(int a,float b){}
+public void add(float a,int b){}
+
+
+class System{
+
+   static PrintWriter out;
+
+}
+
+class PrintWriter{
+
+	println(String[] ){
+		
+	}
+}
+System.out.println()
+
+
+-------------------
+Generics are used to write type-safe code.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+

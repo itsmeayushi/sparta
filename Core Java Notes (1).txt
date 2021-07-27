@@ -1,0 +1,379 @@
+					What and Why Java?
+
+		Java is an Object Oriented Language.
+		object oreinted,multithreading,platform independent,robust
+
+		Object Oriented features: Abstraction, Encapsulation,Inheritance,Polymorphism
+
+		is java a pure object oriented language??
+		NO, bcoz java still supports primitive types like int,char,float.
+
+		Student student=new Student();
+		Student student: reference variable : stack memory
+		new Student();: object : heap memory
+		int num=10;
+
+
+		Why Object Oriented Approach??
+		it is based on real world. 
+
+		mobile phone
+		abstraction(showing relevant data/info) : behaviour(functions) : "What to do?"
+		encapsulation(hiding complex details): attributes/implementation: "How to do?"
+		Inheritance(resuability)
+		Polymorphism( many forms)
+
+		Various types available in Java
+		1. primitive types(int,char,float,double,byte....)
+		2. Derived types( arrays)
+		3. User defined types( classes,enums,interfaces..)
+
+		What is class?
+		A class is a user defined type which exhibits attributes and behaviour.
+
+		What is object?
+		An object is an instance of a class.
+
+
+		class Mobile{
+			
+			private chips,circuits
+
+			public call
+			public message
+	
+		}
+
+		object: abstraction
+
+----------------------------------------------------------------------------------------
+
+JDK (Java Development kit): JRE(Java Runtime Environment)+ Devlopment tools
+			    JRE: JVM(Java Virtual Machine)+ Library(classes,interface)
+
+
+Variables in class:
+Instance variables: these variable are created when an object of the class is created and destroyed when the object is deallocated from the memory.
+Class/static  variables: these variables are created when the class is loaded in the memory, and gets destroyed when the class is unloaded or the program is stopped.
+
+Static block:
+A static block is used to initialize static variables. 
+A static block called even before main method during the class is being loaded.
+A static block is called only once for a class whereas constructor are called everytime an object is created.
+
+
+arrays: are set of similar type variables. It allocate consecutive memory. is a way of collecting data.
+        an array is a fixed size variable.
+
+	int[] phonenumbers=new int[3];
+	
+	int[] phonenumbers;
+
+	phonenumbers=new int[3];
+
+Method overloading:
+In a class, we can have more than one method with the same but different method signature.
+Method signature:
+1. Number of parameters
+2. Type of parameters
+3. Sequence of parameters
+
+public void add(int a,int b){}
+public void add(float a,float b){}
+public void add(float a,float b,float c){}
+public void add(int a,float b){}
+public void add(float a,int b){}
+
+
+class System{
+
+   static PrintWriter out;
+
+}
+
+class PrintWriter{
+
+	println(String[] ){
+		
+	}
+}
+System.out.println()
+
+
+-------------------
+String class and Wrapper Class
+
+In Java, String is a special class. which is a final class.
+
+What is final class? If we want to prevent a class to be inherited, then we make that class final.
+String is an immutable class, means any string value cannot be modified.
+
+
+Why String is immutable??
+
+-because string is immutable, it can be reused from the string pool.
+- when the class is loading in the memory during runtime, the class names are passed as an string argument. If in this case if stringis mutable, then anyone can change the class name and run malicious code.
+-- thread safe
+
+--Wrapper classes: are classes which helps us converting primitive types(value type) to objects(reference types).
+int ---> Integer
+float--> Float
+Why to convert primitive types to objects???
+- in java.util package, we have a lot of collection API, which only accepts reference type.
+--primitive types cannot be synchronized, hence we need convert it into object, so that synchronization can be done in multi-threaded  
+  application.
+
+------------------------------------------------------------------------
+Inheritance: Reusablity, creating a newtype with the help of an existing type.
+
+		Employee
+
+
+     Manager     Developer      Trainer 
+
+
+Specialization and Generalization
+
+
+Enum Types: user defined data type used to define set of constants.Enums restrict to select one among the available options.
+
+Java Access Modifier:
+Public : public members are accessible by other classess in the application.
+Private: private members are accessible with the class itself.
+Protected: protected members are accessible in any class within the same package but only accessible in child class in other package.
+default/package-private: accessible in any class within the same package, inaccessible in other packages.
+
+package p1;
+
+class A{
+	public int a;
+	private int b;
+	protected int c;
+}
+
+class B{
+
+     // a is accessible
+     // b is inaccessible
+     // c is accessible
+}
+
+class D extends A{
+    // a is accessible
+     // b is inaccessible
+     // c is accessible
+}
+-------------------------------------------------------
+package p2;
+
+class C{
+
+     //a is accessible
+     //b is inaccessible
+     // c is inaccessible
+}
+
+class E extends A{
+    // a is accessible
+     // b is inaccessible
+     // c is accessible
+}
+
+
+1. There are classes which needs to be instantiated and can be extended further: Concrete Classes.
+
+2. There are classes which does not need to be instantiated but needs to be extended further: Abstract classes.
+3. An abstract class can have non abstract methods which can further be reused by child classes.
+4. It is also possible to have constructors in the abstract classes which can be called from child class constructors.
+5. An abstract class cannot be final. Also, an abstract method cannot be final.
+
+final class: cannot be extended.
+final method: cannot be overridden.
+final variable: cannot be modified(constant).
+
+abstract class Shape{
+   abstract void area();
+   void circumference(){}
+   void perimeter(){}
+   void volume(){}
+}
+
+class Circle extends Shape{
+	void area(){
+	}
+}
+class Rectangle extends Shape{
+	void area(){
+	}
+}
+
+
+class Square extends Shape{
+	void area(){
+	}
+
+}
+
+Course course=new Course();
+Course course=new DegreeCourse();
+
+
+abstract class Amazon{
+	protected double discount;
+	public Amazon(){
+		discount=0.01;
+	}
+	abstract void sell();
+	abstract void return();
+	void amazonDiscount(){
+		
+	}
+}
+
+class Seller1 extends Amazon{
+	public Seller1(){
+		super();
+	}
+	void sell(){                      //abstract method will be implemented(overriding)
+		super.amazonDiscount();   //non abstract method can be reused
+	}
+	void return(){}
+	boolean freeShipping(){
+
+	}
+}
+
+class Seller2 extends Amazon{
+
+	void sell(){                      //abstract method will be implemented(overriding)
+		super.amazonDiscount();   //non abstract method can be reused
+	}
+	void return(){}
+}
+
+
+Interface: An interface is a user defined type. It is implicitly an abstract class where all the methods are by default abstract and public.
+The purpose of creating an interface is to acheive full abstraction and provide loose coupling in the code.
+
+interface Amazon{
+
+	void purchase();    //by default it is an abstract method
+}
+
+interface FlipKart{
+	void purchase();   //by default it is an abstract method
+}
+
+class Seller implements Amazon,FlipKart{
+
+	purchase(){
+		
+	}
+}
+
+Amazon amazon=new Seller();
+FlipKart flipKart=new Seller();
+----------------------------
+abstract class Amazon{
+
+	abstract void purchase();    //by default it is an abstract method
+}
+
+abstract classFlipKart{
+	abstract void purchase();   //by default it is an abstract method
+}
+
+class Seller extends Amazon,FlipKart{
+
+	purchase(){
+		
+	}
+}
+
+-------------------------------------------Exception Handling--------------------------------------------------
+What is Exception?
+An exception is an error which may occur at runtime. The occurence on exception depends on lot of factors like runtime environment, resource availability, user input etc....
+
+An exception if not handled may end up with abnormal termination of the program or application.
+
+Handling exceptions prevent you to terminate the program abnormally.
+
+
+Types of Exception: 
+Checked: are exceptions which are identified by compiler.
+ and Unchecked: are exceptions which are identified during runtime.
+
+Error:
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Course course=null;
+
+course=new DegreeCourse();
+
+course.calculateMonthlyFee();
+
+//DegreeCourse degreeCourse=new DegreeCourse();
+
+course=new DiplomaCourse();
+
+course.calculateMonthlyFee();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
